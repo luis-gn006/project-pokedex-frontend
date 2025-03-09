@@ -4,14 +4,13 @@ import headerSearch from '../images/header__search.png'
 import { Link } from "react-router-dom";
 
 
-function Header({ onSearch}) {
+function Header({ onSearch, onSurprise}) {
 
   const [searchItem, setSearchItem] = useState("");
 
   const handleInputChange = (e) => {
     const item = e.target.value;
     setSearchItem(item);
-    onSearch(item);
   };
 
   const handleSearch = () => {
@@ -19,8 +18,7 @@ function Header({ onSearch}) {
   };
 
   const handleSorprisme = () => {
-    let AleatNum = Math.floor(Math.random() * 151) + 1;
-    console.log(AleatNum);
+    onSurprise();
   };
 
   return (
