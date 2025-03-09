@@ -1,12 +1,13 @@
 .page {
   background-color: #25232d;
-  color: #fff;
+  color: #fbfee5;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   margin: 0 auto;
+  min-height: 100%;
 }
 
 body {

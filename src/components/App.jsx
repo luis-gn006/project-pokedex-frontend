@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import '../index.css'
-import Header from './Header.jsx'
+import '../index.css';
+import Header from './Header.jsx';
+import Footer from './Footer.jsx';
 import { getAllPokemons, getPokemon } from "../utils/pokeApi.js";
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
               <Header
               onSearch={handleSearch} 
               onSurprise={handleRandomPokemon}/>
+              <Footer />
             </>
           }
         />
