@@ -50,22 +50,24 @@ function App() {
 
   return (
     <div className="page">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header
+      <Header
               onSearch={handleSearch} 
               onSurprise={handleRandomPokemon}/>
-              <Main 
-              pokemons={pokemons}
-              />
-              <Footer />
-            </>
-          }
-        />
-      </Routes>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                
+                <Main 
+                pokemons={pokemons}
+                />
+                
+              </>
+            }
+          />
+        </Routes>
+      <Footer />
     </div>
   )
 }

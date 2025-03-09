@@ -1,6 +1,13 @@
 import pokeballImg from '../images/pokemon__global-pokeball.png'
 
-function PokemonGlobalCard({ name, image, id, onClick }) {
+function PokemonGlobalCard({ name, image, id, sound, onClick }) {
+
+    function playSound() {
+        const audio = new Audio(sound);
+        audio.volume = 0.5;
+        audio.play();
+    }
+
     return (
         <div className="pokemon__global">
             <div className="pokemon__global_info">
@@ -12,7 +19,7 @@ function PokemonGlobalCard({ name, image, id, onClick }) {
                 className="pokemon__global_img"
                 src={image}
                 alt={`${name}-${id}`}
-                onClick={onClick}
+                onClick={playSound}
             />
         </div>
     );
