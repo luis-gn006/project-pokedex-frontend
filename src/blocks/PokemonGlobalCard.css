@@ -1,10 +1,12 @@
 .pokemon__global {
     width: 280px;
     margin: 10px auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .pokemon__global_info {
-    background-color: #98173d;
+    background-color: #c9729f;
     display: flex;
     padding: 5px 5px;
     gap: 20px;
@@ -16,7 +18,7 @@
 }
 
 .pokemon__global_img {
-    background-color: #c9184177;
+    background-color: #e2869b;
     width: 280px;
     border-radius: 0 0 10px 10px;
 }
@@ -27,8 +29,4 @@
 
 .pokemon__global_number {
     margin: 0;
-}
-
-@media screen and (min-width: 600px) {
-
 }
