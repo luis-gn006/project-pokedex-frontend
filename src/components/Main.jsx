@@ -13,7 +13,7 @@ function Main({ pokemons, onCardClick }) {
                     image={pokemon.image1}
                     sound={pokemon.sound}
                     stats={pokemon.stats}
-                    onClick={() => onCardClick()}
+                    onDoubleClick={() => onCardClick(pokemon)}
                     />
                 ))}
             </div>

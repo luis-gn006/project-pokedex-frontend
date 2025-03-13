@@ -26,6 +26,9 @@ export const getAllPokemons = async (limit = 151, offset = 0) => {
             specialDefense: pokeData.stats[4]?.base_stat || 0,
             speed: pokeData.stats[5]?.base_stat || 0,
           },
+          height: pokeData.height,
+          weight: pokeData.weight,
+          types: pokeData.types,
         };
       })
     );

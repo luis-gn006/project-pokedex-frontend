@@ -21,6 +21,9 @@
     background-color: #e2869b;
     width: 280px;
     border-radius: 0 0 10px 10px;
+    filter: drop-shadow(
+    0 0 15px rgba(0, 0, 0, .8)
+    );
 }
 
 .pokemon__global_name {

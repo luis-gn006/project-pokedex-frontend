@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import '../index.css';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
+import PokemonIndividualCard from "./PokemonIndividualCard.jsx";
 import Footer from './Footer.jsx';
 import { getAllPokemons, getPokemon } from "../utils/pokeApi.js";
 
@@ -48,6 +49,19 @@ function App() {
     }
   };
 
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const handlePokemonClick = (pokemon) => {
+    setSelectedPokemon(pokemon);
+    console.log(pokemon)
+    setIsPopupOpen(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupOpen(false);
+    setSelectedPokemon(null);
+  };
+
   return (
     <div className="page">
       <Header
@@ -61,8 +75,15 @@ function App() {
                 
                 <Main 
                 pokemons={pokemons}
+                onCardClick={handlePokemonClick}
                 />
-                
+                {pokemon && (
+                <PokemonIndividualCard
+                  pokemon={pokemon}
+                  isOpen={isPopupOpen}
+                  onClose={handleClosePopup}
+                />
+              )}
               </>
             }
           />
