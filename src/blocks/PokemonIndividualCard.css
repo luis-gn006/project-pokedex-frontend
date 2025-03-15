@@ -26,10 +26,15 @@
 
 .pokemon__close-button {
   position: relative;
-  top: -344px;
+  top: -398px;
   left: 254px;
   width: 26px;
   height: 26px;
+}
+
+.pokemon__close-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .pokemon__card-header {
@@ -51,6 +56,12 @@
     0 0 15px rgba(0, 0, 0, .8)
   );
 }
+
+.pokemon__card-image:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .pokemon__card_name {
   margin: 0;
 }
@@ -67,7 +78,7 @@
   color: #fff;
   padding: 5px;
   width: 60%;
-  margin: 0 auto 10px auto;
+  margin: -10px auto 10px auto;
   border-radius: 10px;
 
 }
@@ -129,6 +140,22 @@
   align-items: center;
   list-style: none;
 }
+
+.pokemon__card_shiny-button {
+  margin: 15px auto 5px auto;
+  width: 30%;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #e2869b;
+}
+
+.pokemon__card_shiny-button:hover {
+  opacity: 0.8;
+  background-color: #583b7e;
+  cursor: pointer;
+}
+
 
 @media screen and (min-width: 800px) {
 }
