@@ -26,6 +26,11 @@
     );
 }
 
+.pokemon__global_img:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
 .pokemon__global_name {
     margin: 0;
 }

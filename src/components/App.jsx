@@ -5,9 +5,11 @@ import About from './About.jsx';
 import Loading from './Loading.jsx';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
+import InfoToolTip from './InfoToolTips.jsx';
 import PokemonIndividualCard from "./PokemonIndividualCard.jsx";
 import Footer from './Footer.jsx';
 import { getAllPokemons, getPokemon } from "../utils/pokeApi.js";
+import popupCross from '../images/popup__cross.svg';
 
 function App() {
 
@@ -48,6 +50,7 @@ function App() {
       playSound(result);
       console.log(result); 
     } catch (error) {
+      setInfoErrorPopupOpen(true);
       console.error("No se pudo encontrar el Pokémon", error);
     }
   };
@@ -78,6 +81,7 @@ function App() {
 
   const handleClosePopup = () => {
     setIsPopupOpen(false);
+    setInfoErrorPopupOpen(false)
     setSelectedPokemon(null);
   };
 
@@ -86,9 +90,13 @@ function App() {
       e.key == "Escape" && handleClosePopup();
     });
     document.addEventListener("click", (e) => {
-      e.target.classList.contains("pokemon__card") && handleClosePopup();
-    });
+      if (e.target.classList.contains("pokemon__card") || e.target.classList.contains("popup")) {
+          handleClosePopup();
+      }
   });
+  });
+
+  const [isInfoErrorPopupOpen, setInfoErrorPopupOpen] = React.useState(false);
 
   return (
     <div className="page">
@@ -110,6 +118,13 @@ function App() {
                 pokemons={pokemons.slice(0, visiblePokemons)}
                 onCardClick={handlePokemonClick}
               />
+              <InfoToolTip
+            name={'error'}
+            message={'Parece que no encontramos el Pokémon, verifica que este bien escrito o exista'}
+            icon={popupCross}
+            onClose={handleClosePopup}
+            isOpen={isInfoErrorPopupOpen}
+            />
               {visiblePokemons < pokemons.length && (
                 <button className="main__button" onClick={handleLoadMore}>Cargar más</button> 
               )}
