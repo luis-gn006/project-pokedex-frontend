@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import '../index.css';
+import Loading from './Loading.jsx';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
 import PokemonIndividualCard from "./PokemonIndividualCard.jsx";
@@ -11,16 +12,20 @@ function App() {
 
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setSelectedPokemon] = useState(null);
-  const [visiblePokemons, setVisiblePokemons] = useState(30);
+  const [visiblePokemons, setVisiblePokemons] = useState(20);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getPokemons = async () => {
       try {
+        setIsLoading(true);
         const pokemonData = await getAllPokemons();
         setPokemons(pokemonData);
         console.log(pokemonData);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -59,7 +64,7 @@ function App() {
   };
 
   const handleLoadMore = () => {
-    setVisiblePokemons((prevVisible) => prevVisible + 32);
+    setVisiblePokemons((prevVisible) => prevVisible + 20);
   };
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -86,14 +91,17 @@ function App() {
           <Route
             path="/"
             element={
-              <>
+              isLoading ? (
+                <Loading />
+              ) : (
+                <>
                 
                 <Main 
                 pokemons={pokemons.slice(0, visiblePokemons)}
                 onCardClick={handlePokemonClick}
               />
               {visiblePokemons < pokemons.length && (
-                <button onClick={handleLoadMore}>Cargar más</button> 
+                <button className="main__button" onClick={handleLoadMore}>Cargar más</button> 
               )}
                 {pokemon && (
                 <PokemonIndividualCard
@@ -103,6 +111,8 @@ function App() {
                 />
               )}
               </>
+              )
+              
             }
           />
         </Routes>
