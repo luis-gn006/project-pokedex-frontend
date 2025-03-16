@@ -1,8 +1,7 @@
 import closeIcon from "../images/popup__close-icon.svg";
-import pokeballImg from "../images/pokemon__global-pokeball.png"
-import pokemonWeight from "../images/pokemon__weight.png"
-import pokemonHeight from "../images/pokemon__height.png"
-import pokemonBackground from "../images/pokemon__background.png"
+import pokeballImg from "../images/pokemon__global-pokeball.png";
+import pokemonWeight from "../images/pokemon__weight.png";
+import pokemonHeight from "../images/pokemon__height.png";
 import { useState } from "react";
 
 function PokemonIndividualCard({ pokemon, isOpen, onClose }) {

@@ -1,4 +1,4 @@
-import pokeballImg from "../images/pokemon__global-pokeball.png"
+import pokeballImg from "../images/pokemon__global-pokeball.png";
 
 function PokemonGlobalCard({ name, image, id, sound, onDoubleClick }) {
 
