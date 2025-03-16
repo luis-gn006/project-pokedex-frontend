@@ -11,6 +11,7 @@ function App() {
 
   const [pokemons, setPokemons] = useState([]);
   const [pokemon, setSelectedPokemon] = useState(null);
+  const [visiblePokemons, setVisiblePokemons] = useState(30);
 
   useEffect(() => {
     const getPokemons = async () => {
@@ -42,11 +43,15 @@ function App() {
     const randomId = Math.floor(Math.random() * 151) + 1;
     try {
       const randomPokemon = await getPokemon(randomId);
-      setSelectedPokemon(randomPokemon);
       console.log(randomPokemon); 
+      setSelectedPokemon(randomPokemon);
     } catch (error) {
       console.error("No se pudo obtener el Pokémon aleatorio", error);
     }
+  };
+
+  const handleLoadMore = () => {
+    setVisiblePokemons((prevVisible) => prevVisible + 32);
   };
 
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -74,9 +79,12 @@ function App() {
               <>
                 
                 <Main 
-                pokemons={pokemons}
+                pokemons={pokemons.slice(0, visiblePokemons)}
                 onCardClick={handlePokemonClick}
-                />
+              />
+              {visiblePokemons < pokemons.length && (
+                <button onClick={handleLoadMore}>Cargar más</button> 
+              )}
                 {pokemon && (
                 <PokemonIndividualCard
                   pokemon={pokemon}

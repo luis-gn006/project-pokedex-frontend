@@ -59,6 +59,9 @@ export const getPokemon = async (pokemonInput) => {
         specialDefense: pokeData.stats[4]?.base_stat || 0,
         speed: pokeData.stats[5]?.base_stat || 0,
       },
+          height: pokeData.height,
+          weight: pokeData.weight,
+          types: pokeData.types,
     };
   } catch (error) {
     console.error("No se pudo conseguir la información del Pokémon", error);
