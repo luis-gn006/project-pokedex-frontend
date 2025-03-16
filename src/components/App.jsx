@@ -81,6 +81,15 @@ function App() {
     setSelectedPokemon(null);
   };
 
+  React.useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      e.key == "Escape" && handleClosePopup();
+    });
+    document.addEventListener("click", (e) => {
+      e.target.classList.contains("pokemon__card") && handleClosePopup();
+    });
+  });
+
   return (
     <div className="page">
       <Header

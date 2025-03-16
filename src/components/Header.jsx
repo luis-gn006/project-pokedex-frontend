@@ -22,6 +22,12 @@ function Header({ onSearch, onSurprise, pokemons }) {
     onSearch(searchItem);
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   const handleSurprise = () => {
     onSurprise();
   };
@@ -49,6 +55,7 @@ function Header({ onSearch, onSurprise, pokemons }) {
             placeholder="Busca tu pokemon"
             value={searchItem}
             onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
           />
           <button className="header__search_button" onClick={handleSearch}>
             <img className="header__search_button-img" src={headerSearch} alt="boton de buscar" />
