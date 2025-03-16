@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import headerLogo from '../images/header__logo.svg';
 import headerSearch from '../images/header__search.png';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Header({ onSearch, onSurprise, pokemons }) {
   const [searchItem, setSearchItem] = useState("");
@@ -30,6 +31,9 @@ function Header({ onSearch, onSurprise, pokemons }) {
     onSearch(pokemonName);
     setSuggestions([]);
   };
+
+  const location = useLocation();
+  useEffect(() => {}, [location]);
 
   return (
     <>
@@ -62,11 +66,19 @@ function Header({ onSearch, onSurprise, pokemons }) {
           )}
         </div>
         <button className="header__sorprise_button" onClick={handleSurprise}>
-          Sorprendeme
+        ¡Sorpréndeme!
         </button>
-        <Link className="header__link" to="/about">
+
+        {location.pathname == "/" && (
+          <Link className="header__link" to="/about">
           Acerca del proyecto
         </Link>
+        )}
+        {location.pathname == "/about" && (
+          <Link className="header__link" to="/">
+          Pokédex
+        </Link>
+        )}        
       </header>
     </>
   );

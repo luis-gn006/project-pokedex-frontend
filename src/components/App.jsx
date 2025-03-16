@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import '../index.css';
+import About from './About.jsx';
 import Loading from './Loading.jsx';
 import Header from './Header.jsx';
 import Main from './Main.jsx';
@@ -113,6 +114,14 @@ function App() {
               </>
               )
               
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <>
+              <About />
+              </>
             }
           />
         </Routes>
