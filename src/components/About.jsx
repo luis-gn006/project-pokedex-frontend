@@ -7,10 +7,10 @@ function About() {
                     Esta página ha sido desarrollada como una Pokédex interactiva para
                     poner en práctica mis habilidades de frontend. El proyecto utiliza
                     la metodología BEM junto con HTML, CSS, JavaScript y React. Además, 
-                    está conectada a la API de{' '}
+                    está conectada a la API de{" "}
                         <a href="https://pokeapi.co" className="about__link" target="_blank">
                             PokeAPI
-                        </a>{' '}
+                        </a>{" "}
                     para ofrecer información en tiempo real sobre diferentes Pokémon.
                     </h4>
                     <h2 className="about__subtitle">Funciones de la pokédex</h2>

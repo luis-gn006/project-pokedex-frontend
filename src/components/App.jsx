@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import '../index.css';
-import About from './About.jsx';
-import Loading from './Loading.jsx';
-import Header from './Header.jsx';
-import Main from './Main.jsx';
-import InfoToolTip from './InfoToolTips.jsx';
+import "../index.css";
+import About from "./About.jsx";
+import Loading from "./Loading.jsx";
+import Header from "./Header.jsx";
+import Main from "./Main.jsx";
+import InfoToolTip from "./InfoToolTips.jsx";
 import PokemonIndividualCard from "./PokemonIndividualCard.jsx";
-import Footer from './Footer.jsx';
+import Footer from "./Footer.jsx";
 import { getAllPokemons, getPokemon } from "../utils/pokeApi.js";
-import popupCross from '../images/popup__cross.svg';
+import popupCross from "../images/popup__cross.svg";
 
 function App() {
 
@@ -24,7 +24,6 @@ function App() {
         setIsLoading(true);
         const pokemonData = await getAllPokemons();
         setPokemons(pokemonData);
-        console.log(pokemonData);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       } finally {
@@ -48,7 +47,6 @@ function App() {
       const result = await getPokemon(searchTerm.toLowerCase());
       setSelectedPokemon(result);
       playSound(result);
-      console.log(result); 
     } catch (error) {
       setInfoErrorPopupOpen(true);
       console.error("No se pudo encontrar el Pokémon", error);
@@ -59,7 +57,6 @@ function App() {
     const randomId = Math.floor(Math.random() * 151) + 1;
     try {
       const randomPokemon = await getPokemon(randomId);
-      console.log(randomPokemon); 
       setSelectedPokemon(randomPokemon);
       playSound(randomPokemon);
     } catch (error) {
@@ -75,7 +72,6 @@ function App() {
 
   const handlePokemonClick = (pokemon) => {
     setSelectedPokemon(pokemon);
-    console.log(pokemon)
     setIsPopupOpen(true);
   };
 
@@ -119,8 +115,8 @@ function App() {
                 onCardClick={handlePokemonClick}
               />
               <InfoToolTip
-            name={'error'}
-            message={'Parece que no encontramos el Pokémon, verifica que este bien escrito o exista'}
+            name={"error"}
+            message={"Ups, no pudimos encontrar ese Pokémon. Por favor, verifica que el nombre esté correctamente escrito o que el Pokémon exista."}
             icon={popupCross}
             onClose={handleClosePopup}
             isOpen={isInfoErrorPopupOpen}

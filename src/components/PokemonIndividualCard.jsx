@@ -35,7 +35,7 @@ function PokemonIndividualCard({ pokemon, isOpen, onClose }) {
     >
       <div className="pokemon__card-container">
         <div className="pokemon__card-header">
-          <img className='pokemon__card_logo' src={pokeballImg} alt="imagen de pokeball" />
+          <img className="pokemon__card_logo" src={pokeballImg} alt="imagen de pokeball" />
           <h3 className="pokemon__card_number">{`No. ${pokemon.id}`}</h3>
           <h3 className="pokemon__card_name">{`${pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}`}</h3>
         </div>

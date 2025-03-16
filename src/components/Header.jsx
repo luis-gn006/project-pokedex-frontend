@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
-import headerLogo from '../images/header__logo.svg';
-import headerSearch from '../images/header__search.png';
+import { useState } from "react";
+import { useEffect } from "react";
+import headerLogo from "../images/header__logo.svg";
+import headerSearch from "../images/header__search.png";
 import { Link, useLocation } from "react-router-dom";
 
 function Header({ onSearch, onSurprise, pokemons }) {
@@ -66,7 +66,7 @@ function Header({ onSearch, onSurprise, pokemons }) {
                 <li
                   key={pokemon.name}
                   onClick={() => handleSuggestionClick(pokemon.name)}
-                  className='header__search-suggestion'
+                  className="header__search-suggestion"
                 >
                   {pokemon.name}
                 </li>

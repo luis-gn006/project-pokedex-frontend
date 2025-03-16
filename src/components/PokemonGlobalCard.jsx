@@ -1,4 +1,4 @@
-import pokeballImg from '../images/pokemon__global-pokeball.png'
+import pokeballImg from "../images/pokemon__global-pokeball.png"
 
 function PokemonGlobalCard({ name, image, id, sound, onDoubleClick }) {
 
@@ -18,7 +18,7 @@ function PokemonGlobalCard({ name, image, id, sound, onDoubleClick }) {
     return (
         <div className="pokemon__global">
             <div className="pokemon__global_info">
-                <img className='pokemon__global_logo' src={pokeballImg} alt="imagen de pokeball" />
+                <img className="pokemon__global_logo" src={pokeballImg} alt="imagen de pokeball" />
                 <h3 className="pokemon__global_number">{`No. ${id}`}</h3>
                 <h3 className="pokemon__global_name">{`${name}`}</h3>
             </div>
