@@ -1,24 +1,34 @@
-import { useState } from 'react'
-import headerLogo from '../images/header__logo.svg'
-import headerSearch from '../images/header__search.png'
+import { useState } from 'react';
+import headerLogo from '../images/header__logo.svg';
+import headerSearch from '../images/header__search.png';
 import { Link } from "react-router-dom";
 
-
-function Header({ onSearch, onSurprise}) {
-
+function Header({ onSearch, onSurprise, pokemons }) {
   const [searchItem, setSearchItem] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleInputChange = (e) => {
     const item = e.target.value;
     setSearchItem(item);
+
+    const filteredSuggestions = pokemons.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(item.toLowerCase())
+    );
+    setSuggestions(filteredSuggestions); 
   };
 
   const handleSearch = () => {
     onSearch(searchItem);
   };
 
-  const handleSorprisme = () => {
+  const handleSurprise = () => {
     onSurprise();
+  };
+
+  const handleSuggestionClick = (pokemonName) => {
+    setSearchItem(pokemonName);
+    onSearch(pokemonName);
+    setSuggestions([]);
   };
 
   return (
@@ -34,19 +44,32 @@ function Header({ onSearch, onSurprise}) {
             value={searchItem}
             onChange={handleInputChange}
           />
-            <button className="header__search_button" onClick={handleSearch}>
-              <img className="header__search_button-img" src={headerSearch} alt="boton de buscar" />
-            </button>
+          <button className="header__search_button" onClick={handleSearch}>
+            <img className="header__search_button-img" src={headerSearch} alt="boton de buscar" />
+          </button>
+          {suggestions.length > 0 && (
+            <ul className="header__search-suggestions">
+              {suggestions.map((pokemon) => (
+                <li
+                  key={pokemon.name}
+                  onClick={() => handleSuggestionClick(pokemon.name)}
+                  className='header__search-suggestion'
+                >
+                  {pokemon.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-        <button className="header__sorprise_button" onClick={handleSorprisme}>
+        <button className="header__sorprise_button" onClick={handleSurprise}>
           Sorprendeme
         </button>
         <Link className="header__link" to="/about">
-        Acerca del proyecto
+          Acerca del proyecto
         </Link>
       </header>
     </>
-  )
+  );
 }
 
-export default Header
+export default Header;

@@ -41,6 +41,29 @@
   font-size: 22px;
 }
 
+.header__search-suggestions {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  border: none;
+  position: absolute;
+  top: 150px;
+  width: 195px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.header__search-suggestions {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.header__search-suggestions:hover {
+  background-color: #f0f0f0;
+}
+
 @media screen and (min-width: 800px) {
   .header__logo {
     width: 180px;
@@ -67,6 +90,12 @@
   .header__sorprise_button {
     height: 40px;
   }
+
+  .header__search-suggestions {
+    top: 87px;
+    width: 157px;
+  }
+
 }
 
 @media screen and (min-width: 1280px) {

@@ -27,12 +27,19 @@ function App() {
     getPokemons();
   }, []);
 
+  function playSound(pokemon) {
+    const audio = new Audio(pokemon.sound);
+    audio.volume = 0.5;
+    audio.play();
+  }
+
   const handleSearch = async (searchTerm) => {
     if (!searchTerm) return;
 
     try {
       const result = await getPokemon(searchTerm.toLowerCase());
       setSelectedPokemon(result);
+      playSound(result);
       console.log(result); 
     } catch (error) {
       console.error("No se pudo encontrar el Pokémon", error);
@@ -45,6 +52,7 @@ function App() {
       const randomPokemon = await getPokemon(randomId);
       console.log(randomPokemon); 
       setSelectedPokemon(randomPokemon);
+      playSound(randomPokemon);
     } catch (error) {
       console.error("No se pudo obtener el Pokémon aleatorio", error);
     }
@@ -71,7 +79,9 @@ function App() {
     <div className="page">
       <Header
               onSearch={handleSearch} 
-              onSurprise={handleRandomPokemon}/>
+              onSurprise={handleRandomPokemon}
+              pokemons={pokemons}
+              />
         <Routes>
           <Route
             path="/"
