@@ -41,7 +41,9 @@ function Header({ onSearch, onSurprise, pokemons }) {
         <div className="header__container_logo">
           <img src={headerLogo} alt="imagen del logo de Pokemon" className="header__logo" />
         </div>
-        <div className="header__container_search">
+        {location.pathname == "/" && (
+          <>
+            <div className="header__container_search">
           <input
             className="header__search_input"
             placeholder="Busca tu pokemon"
@@ -68,11 +70,10 @@ function Header({ onSearch, onSurprise, pokemons }) {
         <button className="header__sorprise_button" onClick={handleSurprise}>
         ¡Sorpréndeme!
         </button>
-
-        {location.pathname == "/" && (
           <Link className="header__link" to="/about">
           Acerca del proyecto
         </Link>
+          </>
         )}
         {location.pathname == "/about" && (
           <Link className="header__link" to="/">

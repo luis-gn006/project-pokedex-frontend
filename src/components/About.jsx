@@ -16,7 +16,7 @@ function About() {
                     <h2 className="about__subtitle">Funciones de la pokédex</h2>
                     <h4 className="about__text">
                     La página cuenta con un diseño responsivo que se adapta desde 320px 
-                    hasta 10280px, aunque no presenta problemas en resoluciones mayores. 
+                    hasta 1280px, aunque no presenta problemas en resoluciones mayores. 
                     La barra de búsqueda permite ingresar el nombre o el número de Pokédex 
                     de cualquier Pokémon, además de proporcionar sugerencias basadas en lo que se escribe. 
                     También puedes presionar el botón "¡Sorpréndeme!", el cual mostrará un Pokémon al azar.
