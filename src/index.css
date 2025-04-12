@@ -1,0 +1,10 @@
+@import url("./vendor/normalize.css");
+@import url("./blocks/About.css");
+@import url("./blocks/Loading.css");
+@import url("./blocks/page.css");
+@import url("./blocks/Header.css");
+@import url("./blocks/Main.css");
+@import url("./blocks/InfoToolTip.css");
+@import url("./blocks/PokemonGlobalCard.css");
+@import url("./blocks/PokemonIndividualCard.css");
+@import url("./blocks/Footer.css");
